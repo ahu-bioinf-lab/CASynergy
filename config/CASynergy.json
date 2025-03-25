@@ -1,0 +1,94 @@
+{
+    "model": "CAESynergy",
+    "dataset": "Oncology",
+    "OncologyScreen": {
+        "gcn_drug":{
+            "input" : 75,
+            "output" : 256
+        },
+        "gcn_cline":{
+            "layer": 1,
+            "hidden": 1,
+            "hidden_in": 1,
+            "with_random": true,
+            "gfn": false,
+            "collapse": false,
+            "edge_norm": true
+        },
+        "ca":{
+            "input_dim_a" : 1,
+            "input_dim_b" : 1,
+            "hidden_dim" : 2,
+            "dropout": 0.3,
+            "layer_nums": 1
+        },
+        "cal":{
+            "layer": 2,
+            "hidden": 1,
+            "hidden_in": 1,
+            "with_random": true,
+            "gfn": false,
+            "collapse": false,
+            "residual": false,
+            "res_branch":"BNConvReLU",
+            "global_pool": "sum",
+            "edge_norm": true
+        },
+        "decoder_no_cross":{
+            "input_size" : 3121,
+            "hidden_dim": 2048
+        },
+        "decoder_bias":{
+            "input_size" : 2865,
+            "hidden_dim": 2048
+        },
+        "decoder_ablation":{
+            "input_size" : 3121,
+            "hidden_dim": 2048
+        }
+    },
+    "DrugCombDB": {
+        "gcn_drug":{
+            "input" : 75,
+            "output" : 256
+        },
+        "gcn_cline":{
+            "layer": 1,
+            "hidden": 1,
+            "hidden_in": 1,
+            "with_random": true,
+            "gfn": false,
+            "collapse": false,
+            "edge_norm": true
+        },
+        "ca":{
+            "len_a" : 256,
+            "len_b" : 7217,
+            "input_dim_a" : 1,
+            "input_dim_b" : 1,
+            "hidden_dim" : 2,
+            "dropout": 0.3,
+            "layer_nums": 2
+        },
+        "cal":{
+            "layer": 2,
+            "hidden": 1,
+            "hidden_in": 1,
+            "with_random": true,
+            "gfn": false,
+            "collapse": false,
+            "residual": false,
+            "res_branch":"BNConvReLU",
+            "global_pool": "sum",
+            "edge_norm": true
+        },
+        "decoder_no_cross":{
+            "input_size" : 7473,
+            "hidden_dim": 4096
+        },
+        "decoder_bias":{
+            "input_size" : 7217,
+            "hidden_dim": 4096
+        }
+    }
+}
